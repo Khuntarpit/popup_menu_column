@@ -88,7 +88,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0-nullsafety.1"
-  popup_menu:
+  popup_menu_column:
     dependency: "direct dev"
     description:
       path: ".."

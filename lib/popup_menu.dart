@@ -1,4 +1,4 @@
-library popup_menu;
+library popup_menu_column;
 
 import 'dart:core';
 import 'dart:math';
@@ -44,8 +44,8 @@ typedef MenuClickCallback = Function(MenuItemProvider item);
 typedef PopupMenuStateChanged = Function(bool isShow);
 
 class PopupMenu {
-  static var itemWidth = MediaQuery.of(context).size.height*0.28;
-  static var itemHeight = MediaQuery.of(context).size.width*0.065;
+  static var itemWidth = MediaQuery.of(context).size.height*0.23;
+  static var itemHeight = MediaQuery.of(context).size.width*0.06;
   static var arrowHeight = 10.0;
   OverlayEntry _entry;
   List<MenuItemProvider> items;
@@ -207,8 +207,11 @@ class PopupMenu {
               children: <Widget>[
                 // triangle arrow
                 Positioned(
-                  left: _showRect.left + _showRect.width / 2.0 - 7.5,
-                  top: _isDown ? offset.dy + menuHeight() : offset.dy - arrowHeight,
+                  left: _showRect.left + _showRect.width,
+                  top:
+                  // _isDown ?
+                  offset.dy + menuHeight() + arrowHeight*2,
+                  // : offset.dy - arrowHeight*2,
                   child: CustomPaint(
                     size: Size(15.0, arrowHeight),
                     painter: TrianglePainter(isDown: _isDown, color: _backgroundColor),
@@ -216,8 +219,8 @@ class PopupMenu {
                 ),
                 // menu content
                 Positioned(
-                  left: offset.dx,
-                  top: offset.dy,
+                  left: _showRect.left + _showRect.width + arrowHeight,
+                  top: offset.dy + menuHeight() <= 3 ? menuHeight() :menuHeight()/2 ,
                   child: Container(
                     width: menuWidth(),
                     height: menuHeight(),

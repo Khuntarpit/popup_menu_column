@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:popup_menu/popup_menu.dart';
+import 'package:popup_menu_column/popup_menu.dart';
 
 class GestureDemo extends StatefulWidget {
   @override

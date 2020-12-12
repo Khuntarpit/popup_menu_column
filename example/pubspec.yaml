@@ -28,7 +28,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  popup_menu:
+  popup_menu_column:
     path: ../
 
 
