@@ -159,7 +159,7 @@ class PopupMenu {
       if(tempDx > 10) dx = tempDx;
     }
 
-    double dy = _showRect.top - menuHeight();
+    double dy = _showRect.top;
     if (dy <= MediaQuery.of(context).padding.top + 10) {
       // The have not enough space above, show menu under the widget.
       dy = arrowHeight + _showRect.height + _showRect.top;
@@ -207,10 +207,12 @@ class PopupMenu {
               children: <Widget>[
                 // triangle arrow
                 Positioned(
+                  // left: _showRect.left + _showRect.width / 2.0 - 7.5,
+                  // top: _isDown ? offset.dy + menuHeight() : offset.dy - arrowHeight,
                   left: _showRect.left + _showRect.width,
-                  top:
+                  top:  offset.dy + arrowHeight *2,
                   // _isDown ?
-                  offset.dy + menuHeight() + arrowHeight*2,
+                  // offset.dy  + menuHeight()/2,
                   // : offset.dy - arrowHeight*2,
                   child: CustomPaint(
                     size: Size(15.0, arrowHeight),
@@ -220,7 +222,9 @@ class PopupMenu {
                 // menu content
                 Positioned(
                   left: _showRect.left + _showRect.width + arrowHeight,
-                  top: offset.dy + menuHeight() <= 3 ? menuHeight() :menuHeight()/2 ,
+                  top: offset.dy,
+                  // left: _showRect.left + _showRect.width + arrowHeight,
+                  // top: offset.dy - arrowHeight * 3,
                   child: Container(
                     width: menuWidth(),
                     height: menuHeight(),
