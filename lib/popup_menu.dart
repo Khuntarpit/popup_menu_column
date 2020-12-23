@@ -487,7 +487,7 @@ class _MenuItemWidgetState extends State<_MenuItemWidget> {
             width: 90,
             child: DecoratedBox(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width <= 766 ?4: 8),
                 color: Colors.orange.withOpacity(0.8),
               ),
               child: Center(
